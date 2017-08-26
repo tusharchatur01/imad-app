@@ -89,7 +89,7 @@ app.get('/ui/madi.png', function (req, res) {
 });
 
 app.get('/:appname', function (req, res) {
-    var appname= res.params.appname;
+    var appname= req.params.appname;
   res.send(createtemplate(apps[appname]));
 });
 
