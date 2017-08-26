@@ -37,7 +37,9 @@ function createtemplate(data){
                     <div>
                       <a href='/'>home</a>
                     </div>
+            </div>
                       <hr>
+            <div class="container">
                       <h2>
                         ${heading}
                       </h2>
