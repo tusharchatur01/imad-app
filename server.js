@@ -5,14 +5,33 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var appone = {
-    title: "app-one",
-    heading: "app-one",
-    date: "26 august",
-    content: `         
-    <p>
-    this is my first application
-     </p> `
+var apps={ 
+    'app-one': {
+        title: "app-one",
+        heading: "app-one",
+        date: "26 august",
+        content: `         
+        <p>
+        this is my first application
+         </p> `
+    },
+    'app-two': {
+        title: "app-two",
+        heading: "app-two",
+        date: "27 august",
+        content: `         
+        <p>
+        this is my second application
+         </p> `},
+    'app-three': {
+        title: "app-three",
+        heading: "app-three",
+        date: "28 august",
+        content: `         
+        <p>
+        this is my thrid application
+         </p> `},
+
 };
 
 
@@ -69,17 +88,12 @@ app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
 });
 
-app.get('/app-one', function (req, res) {
-  res.send(createtemplate(appone));
+app.get('/:appname', function (req, res) {
+    var appname= res.params.appname;
+  res.send(createtemplate(apps[appname]));
 });
 
-app.get('/app-two', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'app-two.html'));
-});
 
-app.get('/app-three', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'app-three.html'));
-});
 
 
 // Do not change port, otherwise your app won't run on IMAD servers
