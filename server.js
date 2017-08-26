@@ -9,10 +9,10 @@ var appone = {
     title: "app-one",
     heading: "app-one",
     date: "26 august",
-    content: 
-                    `         <p>
-                       this is my first application
-                     </p> `
+    content: `         
+    <p>
+    this is my first application
+     </p> `
 };
 
 
