@@ -50,7 +50,7 @@ function createtemplate(data){
             </div>           
         </body>
     </html>`;
-    retuern htmltemplate;
+    return htmltemplate;
 
 }
 
@@ -70,7 +70,7 @@ app.get('/ui/madi.png', function (req, res) {
 });
 
 app.get('/app-one', function (req, res) {
-  res.send(path.join(createtemplate(appone));
+  res.send(createtemplate(appone));
 });
 
 app.get('/app-two', function (req, res) {
