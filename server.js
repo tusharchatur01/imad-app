@@ -5,6 +5,58 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
+var appone = {
+    title: "app-one",
+    heading: "app-one",
+    date: "26 august",
+    content: 
+                    `         <p>
+                       this is my first application
+                     </p> `
+};
+
+
+function createtemplate(data){
+    var title =  data.title;
+    var heading = data.heading;
+    var date = date.date;
+    var content = date.content;
+    
+    var htmltemplate= `
+    <html>
+        <head>
+            <title>
+                ${title};
+            </title>
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <link href="/ui/style.css" rel="stylesheet" />
+      
+        </head>
+        <body>
+            <div class="container">
+                    <div>
+                      <a href='/'>home</a>
+                    </div>
+                      <hr>
+                      <h2>
+                        ${heading}
+                      </h2>
+                      <div>
+                      ${date}
+                      </div>
+                      <div>
+                         ${content}
+                       </div>
+            </div>           
+        </body>
+    </html>`;
+    retuern htmltemplate;
+
+}
+
+
+
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
@@ -18,7 +70,7 @@ app.get('/ui/madi.png', function (req, res) {
 });
 
 app.get('/app-one', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'app-one.html'));
+  res.send(path.join(createtemplate(appone));
 });
 
 app.get('/app-two', function (req, res) {
