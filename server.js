@@ -19,7 +19,7 @@ var appone = {
 function createtemplate(data){
     var title =  data.title;
     var heading = data.heading;
-    var date = date.date;
+    var date = data.date;
     var content = date.content;
     
     var htmltemplate= `
